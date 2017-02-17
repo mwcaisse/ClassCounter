@@ -5,7 +5,18 @@ using System.Threading.Tasks;
 
 namespace ClassCounter
 {
-    public class ClassCounterBase
+    public abstract class ClassCounterBase
     {
+
+        protected ClassCounterBase()
+        {
+            ClassCounter.ClassCreated(this);
+        }
+
+        ~ClassCounterBase()
+        {
+            ClassCounter.ClassRemoved(this);
+        }
+
     }
 }

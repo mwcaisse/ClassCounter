@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 
 namespace ClassCounter
 {
-    public class ClassCounter
+    public static class ClassCounter
     {
 
         /// <summary>
         /// Mapping of number of times a given type has been created / instantiated  
         /// </summary>
-        private Dictionary<Type, int> Creations { get; }
+        public static Dictionary<Type, int> Creations { get; }
 
         /// <summary>
         /// Mapping of number of times a given type has been removed / freed by garbage collection
         /// </summary>
-        private Dictionary<Type, int> Removals { get; }
+        public static Dictionary<Type, int> Removals { get; }
 
-        public ClassCounter()
+        static ClassCounter()
         {
             Creations = new Dictionary<Type, int>();
             Removals = new Dictionary<Type, int>();
@@ -28,7 +28,7 @@ namespace ClassCounter
         /// Increments the number of times the given type has been created
         /// </summary>
         /// <param name="type">The type</param>
-        public void ClassCreated(Type type)
+        public static void ClassCreated(Type type)
         {
             if (!Creations.ContainsKey(type))
             {
@@ -43,7 +43,7 @@ namespace ClassCounter
         /// Increments the number of times the type of the given object has been created
         /// </summary>
         /// <param name="o">the object</param>
-        public void ClassCreated(Object o)
+        public static void ClassCreated(Object o)
         {
             ClassCreated(o.GetType());
         }
@@ -53,7 +53,7 @@ namespace ClassCounter
         /// Increments the number of times the the given type has been removed
         /// </summary>
         /// <param name="type">The type</param>
-        public void ClassRemoved(Type type)
+        public static void ClassRemoved(Type type)
         {
             if (!Removals.ContainsKey(type))
             {
@@ -67,7 +67,7 @@ namespace ClassCounter
         /// Increments the number of times the type of the given object has been removed
         /// </summary>
         /// <param name="o">the object</param>
-        public void ClassRemoved(Object o)
+        public static void ClassRemoved(Object o)
         {
             ClassRemoved(o.GetType());
         }
