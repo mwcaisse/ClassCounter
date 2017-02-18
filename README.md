@@ -68,3 +68,8 @@ public class ClassIWantToCount
 ### Other Considerations
 Both of these methods require you modify the class directly to enable instance counting.
 Ideally it would be nice to have a RegisterForInstanceCounting(Type t) method that enables instance counting for that type without modifying the class. I was not able to find a way to do this without modifying the .NET runtime.
+
+Both methods also make use of a static class to perform the counting. This doesn't allow you to have different objects for counting different classes.
+If that is desired it wouldn't be too hard to modify ClassCounter to be non-static. In doing so you 
+would have to pass the instance of ClassCounter you wish to use to count to the constructor of each object.
+Depending on the use this may or may not be desirable.
