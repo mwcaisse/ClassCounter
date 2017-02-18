@@ -11,10 +11,10 @@ dotnet run 150
 
 ## Sample Output
 ```
-  NonInheritableCountable: Created: 600  Alive:  0
-                ImCounted: Created: 150  Alive:  0
-             StayingAlive: Created: 1200 Alive: 400
-          ImCountedAsWell: Created: 300  Alive:  0
+  NonInheritableCountable: Created:  600  Alive:   0
+                ImCounted: Created:  150  Alive:   0
+             StayingAlive: Created: 1200  Alive: 400
+          ImCountedAsWell: Created:  300  Alive:   0
 ```		  
 ## Implementation
 
