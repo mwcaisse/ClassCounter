@@ -3,10 +3,11 @@ Simple example to count the number of times a class has been created and how man
 
 ## How to Run
 
-1. git clone https://github.com/mwcaisse/ClassCounter.git
-2. cd ./ClassCounter/src/ClassCounter
-3. dotnet run 150
-..* Optional parameter to specify number of classes to create
+```shell
+git clone https://github.com/mwcaisse/ClassCounter.git
+cd ./ClassCounter/src/ClassCounter
+ dotnet run 150
+```
 
 ## Sample Output
 
