@@ -78,7 +78,7 @@ namespace ClassCounter
                 var created = keyValuePair.Value;
                 var alive = created - removed;
 
-                Console.WriteLine($"{keyValuePair.Key.Name, 25}: Created: {created, 2} Alive: {alive, 2}");
+                Console.WriteLine($"{keyValuePair.Key.Name, 25}: Created: {created, 4} Alive: {alive, 4}");
             }
         }
 

@@ -29,7 +29,7 @@ namespace ClassCounter
         /// Increments the number of times the given type has been created
         /// </summary>
         /// <param name="type">The type</param>
-        public static void ClassCreated(Type type)
+        public static void InstanceCreated(Type type)
         {
             Creations.AddOrUpdate(type, 1, (type1, i) => i + 1);
         }
@@ -38,9 +38,9 @@ namespace ClassCounter
         /// Increments the number of times the type of the given object has been created
         /// </summary>
         /// <param name="o">the object</param>
-        public static void ClassCreated(Object o)
+        public static void InstanceCreated(Object o)
         {
-            ClassCreated(o.GetType());
+            InstanceCreated(o.GetType());
         }
 
 
@@ -48,7 +48,7 @@ namespace ClassCounter
         /// Increments the number of times the the given type has been removed
         /// </summary>
         /// <param name="type">The type</param>
-        public static void ClassRemoved(Type type)
+        public static void InstanceRemoved(Type type)
         {
             Removals.AddOrUpdate(type, 1, (type1, i) => i + 1);
         }
@@ -57,9 +57,9 @@ namespace ClassCounter
         /// Increments the number of times the type of the given object has been removed
         /// </summary>
         /// <param name="o">the object</param>
-        public static void ClassRemoved(Object o)
+        public static void InstanceRemoved(Object o)
         {
-            ClassRemoved(o.GetType());
+            InstanceRemoved(o.GetType());
         }
 
     }

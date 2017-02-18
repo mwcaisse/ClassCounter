@@ -10,12 +10,12 @@ namespace ClassCounter.CountableClasses
 
         public NonInheritableCountable()
         {
-            ClassCounter.ClassCreated(this);
+            ClassCounter.InstanceCreated(this);
         }
 
         ~NonInheritableCountable()
         {
-            ClassCounter.ClassRemoved(this);
+            ClassCounter.InstanceRemoved(this);
         }
     }
 }

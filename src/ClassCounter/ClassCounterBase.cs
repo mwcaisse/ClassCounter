@@ -18,7 +18,7 @@ namespace ClassCounter
         /// </summary>
         protected ClassCounterBase()
         {
-            ClassCounter.ClassCreated(this);
+            ClassCounter.InstanceCreated(this);
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace ClassCounter
         /// </summary>
         ~ClassCounterBase()
         {
-            ClassCounter.ClassRemoved(this);
+            ClassCounter.InstanceRemoved(this);
         }
 
     }
