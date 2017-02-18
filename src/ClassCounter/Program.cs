@@ -12,9 +12,16 @@ namespace ClassCounter
     {
         public static void Main(string[] args)
         {
+
+            var toCreate = 150;
+            if (args.Length == 1)
+            {
+                toCreate = Convert.ToInt32(args[0]);
+            }
+
             //Create some classes
-            CreateSomeClasses();
-            var stayingAlive = CreateSomeStayingAliveClasses();
+            CreateSomeClasses(toCreate);
+            var stayingAlive = CreateSomeStayingAliveClasses(toCreate);
 
             //force the garbage collection
             GC.Collect();
@@ -25,29 +32,29 @@ namespace ClassCounter
             Console.ReadLine();
         }
 
-        protected static void CreateSomeClasses()
+        protected static void CreateSomeClasses(int toCreate)
         {
-            for (var i = 0; i < 150; i++)
+            for (var i = 0; i < toCreate * Math.Pow(2, 0); i++)
             {
                 new ImCounted();
             }
 
-            for (var i = 0; i < 300; i++)
+            for (var i = 0; i < toCreate * Math.Pow(2, 1); i++)
             {
                 new ImCountedAsWell();
             }
 
-            for (var i = 0; i < 600; i++)
+            for (var i = 0; i < toCreate * Math.Pow(2, 2); i++)
             {
                 new NonInheritableCountable();
             }
         }
 
-        protected static List<StayingAlive> CreateSomeStayingAliveClasses()
+        protected static List<StayingAlive> CreateSomeStayingAliveClasses(int toCreate)
         {
             var stayingAlive = new List<StayingAlive>();
 
-            for (var i = 0; i < 1200; i++)
+            for (var i = 0; i < toCreate * Math.Pow(2, 3); i++)
             {
                 if (i % 3 == 0)
                 {
