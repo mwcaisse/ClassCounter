@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using ClassCounter.CountableClasses;
 
@@ -11,6 +12,7 @@ namespace ClassCounter
     {
         public static void Main(string[] args)
         {
+            //Create some classes
             CreateSomeClasses();
             var stayingAlive = CreateSomeStayingAliveClasses();
 
@@ -25,15 +27,19 @@ namespace ClassCounter
 
         protected static void CreateSomeClasses()
         {
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < 150; i++)
             {
                 new ImCounted();
-          
             }
 
-            for (var i = 0; i < 5; i++)
+            for (var i = 0; i < 300; i++)
             {
                 new ImCountedAsWell();
+            }
+
+            for (var i = 0; i < 600; i++)
+            {
+                new NonInheritableCountable();
             }
         }
 
@@ -41,7 +47,7 @@ namespace ClassCounter
         {
             var stayingAlive = new List<StayingAlive>();
 
-            for (var i = 0; i < 22; i++)
+            for (var i = 0; i < 1200; i++)
             {
                 if (i % 3 == 0)
                 {
@@ -72,7 +78,7 @@ namespace ClassCounter
                 var created = keyValuePair.Value;
                 var alive = created - removed;
 
-                Console.WriteLine($"{keyValuePair.Key.Name, 15}: Created: {created, 2} Alive: {alive, 2}");
+                Console.WriteLine($"{keyValuePair.Key.Name, 25}: Created: {created, 2} Alive: {alive, 2}");
             }
         }
 
