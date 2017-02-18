@@ -67,4 +67,4 @@ public class ClassIWantToCount
 
 ### Other Considerations
 Both of these methods require you modify the class directly to enable instance counting.
-Ideally it would be nice to have a RegisterForInstanceCounting(Type t) method that enables instance counting for that type without modifying the class. Was not able to find a way to do this without modifying the .NET runtime.
+Ideally it would be nice to have a RegisterForInstanceCounting(Type t) method that enables instance counting for that type without modifying the class. I was not able to find a way to do this without modifying the .NET runtime.
