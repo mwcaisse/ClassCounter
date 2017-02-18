@@ -28,6 +28,9 @@ namespace ClassCounter
 
             PrintResults();
 
+            //ensure stayingAlive is kept alive
+            GC.KeepAlive(stayingAlive);
+
             //pause
             Console.ReadLine();
         }
