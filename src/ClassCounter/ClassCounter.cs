@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,17 +12,17 @@ namespace ClassCounter
         /// <summary>
         /// Mapping of number of times a given type has been created / instantiated  
         /// </summary>
-        public static Dictionary<Type, int> Creations { get; }
+        public static ConcurrentDictionary<Type, int> Creations { get; }
 
         /// <summary>
         /// Mapping of number of times a given type has been removed / freed by garbage collection
         /// </summary>
-        public static Dictionary<Type, int> Removals { get; }
+        public static ConcurrentDictionary<Type, int> Removals { get; }
 
         static ClassCounter()
         {
-            Creations = new Dictionary<Type, int>();
-            Removals = new Dictionary<Type, int>();
+            Creations = new ConcurrentDictionary<Type, int>();
+            Removals = new ConcurrentDictionary<Type, int>();
         }
 
         /// <summary>
@@ -30,13 +31,7 @@ namespace ClassCounter
         /// <param name="type">The type</param>
         public static void ClassCreated(Type type)
         {
-            if (!Creations.ContainsKey(type))
-            {
-                Creations.Add(type, 0);
-            }
-
-            Creations[type] = Creations[type] + 1;
-
+            Creations.AddOrUpdate(type, 1, (type1, i) => i + 1);
         }
 
         /// <summary>
@@ -55,12 +50,7 @@ namespace ClassCounter
         /// <param name="type">The type</param>
         public static void ClassRemoved(Type type)
         {
-            if (!Removals.ContainsKey(type))
-            {
-                Removals.Add(type, 0);
-            }
-
-            Removals[type] = Removals[type] + 1;
+            Removals.AddOrUpdate(type, 1, (type1, i) => i + 1);
         }
 
         /// <summary>
